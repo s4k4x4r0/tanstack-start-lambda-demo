@@ -23,9 +23,4 @@ PoC / Experimental
    ```
 5. 出力された Function URL にアクセスして動作確認
 
-## Licence
-MIT
-
-## Author
-@sakai
 
