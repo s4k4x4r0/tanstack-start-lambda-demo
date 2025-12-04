@@ -1,0 +1,12 @@
+{
+  "name": "tanstack-start-lwa-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "pnpm -r --filter ./packages... run build",
+    "lint": "biome check .",
+    "cdk:deploy": "pnpm --filter infra run cdk:deploy"
+  }
+}
+
