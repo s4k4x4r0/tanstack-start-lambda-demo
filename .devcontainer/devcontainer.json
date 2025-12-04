@@ -3,16 +3,13 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
   "features": {
     "ghcr.io/devcontainers/features/aws-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/ChristopherMacGown/devcontainer-features/direnv:1": {},
     "ghcr.io/jsburckhardt/devcontainer-features/gitleaks:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "biomejs.biome",
-        "amazonwebservices.aws-toolkit-vscode"
+        "biomejs.biome"
       ]
     }
   }
