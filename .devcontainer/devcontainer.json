@@ -4,7 +4,10 @@
   "features": {
     "ghcr.io/devcontainers/features/aws-cli:1": {},
     "ghcr.io/ChristopherMacGown/devcontainer-features/direnv:1": {},
-    "ghcr.io/jsburckhardt/devcontainer-features/gitleaks:1": {}
+    "ghcr.io/jsburckhardt/devcontainer-features/gitleaks:1": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    }
   },
   "customizations": {
     "vscode": {
