@@ -13,8 +13,8 @@ export class TanStackLambdaDemoStack extends cdk.Stack {
       code: lambda.DockerImageCode.fromImageAsset(
         path.join(__dirname, "../../../"),
       ),
-      memorySize: 512,
-      timeout: cdk.Duration.seconds(30),
+      memorySize: 128,
+      timeout: cdk.Duration.seconds(5),
       architecture: lambda.Architecture.ARM_64,
     });
 
