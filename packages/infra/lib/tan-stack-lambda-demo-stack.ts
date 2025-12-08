@@ -24,10 +24,14 @@ export class TanStackLambdaDemoStack extends cdk.Stack {
       memorySize: 128,
       timeout: cdk.Duration.seconds(5),
       architecture: lambda.Architecture.ARM_64,
+      environment: {
+        AWS_LWA_INVOKE_MODE: "response_stream",
+      },
     });
 
     const fnUrl = handler.addFunctionUrl({
       authType: lambda.FunctionUrlAuthType.AWS_IAM,
+      invokeMode: lambda.InvokeMode.RESPONSE_STREAM,
     });
 
     new cloudfront.Distribution(this, "Distribution", {
