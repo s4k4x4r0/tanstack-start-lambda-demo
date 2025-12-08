@@ -16,5 +16,6 @@ COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.9.1 /lambda-adapter /opt
 WORKDIR /prod/app
 COPY --from=build --chown=nonroot:nonroot /prod/app ./
 USER nonroot
+ENV NODE_ENV=production PORT=3000
 EXPOSE 3000
 CMD [ ".output/server/index.mjs" ]
