@@ -1,12 +1,20 @@
+import * as path from "node:path";
 import * as cdk from "aws-cdk-lib";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 import type { Construct } from "constructs";
-import * as path from "path";
+
+interface TanStackLambdaDemoStackProps extends cdk.StackProps {
+  edgeFunction: lambda.Function;
+}
 
 export class TanStackLambdaDemoStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(
+    scope: Construct,
+    id: string,
+    props: TanStackLambdaDemoStackProps,
+  ) {
     super(scope, id, props);
 
     const handler = new lambda.DockerImageFunction(this, "Handler", {
@@ -27,6 +35,13 @@ export class TanStackLambdaDemoStack extends cdk.Stack {
         origin: origins.FunctionUrlOrigin.withOriginAccessControl(fnUrl),
         allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        edgeLambdas: [
+          {
+            functionVersion: props.edgeFunction.currentVersion,
+            eventType: cloudfront.LambdaEdgeEventType.ORIGIN_REQUEST,
+            includeBody: true,
+          },
+        ],
       },
     });
 
