@@ -5,3 +5,9 @@ node_modules
 *.md
 dist
 **/cdk.out
+packages/infra
+.devcontainer
+.vscode
+.cursor
+.husky
+**/.output
