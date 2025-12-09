@@ -39,6 +39,9 @@ export class TanStackLambdaDemoStack extends cdk.Stack {
         origin: origins.FunctionUrlOrigin.withOriginAccessControl(fnUrl),
         allowedMethods: cloudfront.AllowedMethods.ALLOW_ALL,
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        originRequestPolicy:
+          cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
+        cachePolicy: cloudfront.CachePolicy.CACHING_DISABLED,
         edgeLambdas: [
           {
             functionVersion: props.edgeFunction.currentVersion,
