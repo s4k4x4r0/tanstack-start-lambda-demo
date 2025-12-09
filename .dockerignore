@@ -4,10 +4,10 @@ node_modules
 .gitignore
 *.md
 dist
-**/cdk.out
 packages/infra
 .devcontainer
 .vscode
 .cursor
 .husky
 **/.output
+.envrc
